@@ -1,2 +1,12 @@
 export ROLLBAR_ACCESS_TOKEN="3a94ecaf76de4dc18209fb9aa680f7b4"
 gp env ROLLBAR_ACCESS_TOKEN="3a94ecaf76de4dc18209fb9aa680f7b4"
+
+export DB_SG_ID="sg-0db841e9f7725f60c"
+gp env DB_SG_ID="sg-0db841e9f7725f60c"
+
+export DB_SG_RULE_ID="sgr-0fdbf79ce1f1124ea"
+gp env DB_SG_RULE_ID="sgr-0fdbf79ce1f1124ea"
+
+aws ec2 modify-security-group-rules \
+    --group-id $DB_SG_ID \
+    --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
