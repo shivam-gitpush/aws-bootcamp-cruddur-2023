@@ -7,7 +7,6 @@ gp env DB_SG_ID="sg-0db841e9f7725f60c"
 export DB_SG_RULE_ID="sgr-0fdbf79ce1f1124ea"
 gp env DB_SG_RULE_ID="sgr-0fdbf79ce1f1124ea"
 
-export PROD_CONNECTION_URL=postgresql://root:rootRoot@cruddur-db-instance.chke6qas8git.eu-north-1.rds.amazonaws.com:5432/cruddur
 
 
 aws ec2 modify-security-group-rules \
